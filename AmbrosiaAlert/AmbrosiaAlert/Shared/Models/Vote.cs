@@ -5,7 +5,7 @@ namespace AmbrosiaAlert.Shared.Models
 {
     public partial class Vote
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public int UserId { get; set; }
         public int Type { get; set; }
         public Guid LocationId { get; set; }

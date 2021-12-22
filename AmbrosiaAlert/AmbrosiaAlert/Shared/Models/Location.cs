@@ -10,7 +10,7 @@ namespace AmbrosiaAlert.Shared.Models
             Votes = new HashSet<Vote>();
         }
 
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
         public DateTime AddedAt { get; set; }
