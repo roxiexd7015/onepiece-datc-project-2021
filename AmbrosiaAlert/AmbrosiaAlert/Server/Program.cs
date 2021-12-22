@@ -1,4 +1,6 @@
+using AmbrosiaAlert.Shared.Models;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<AmbrosiaAlertContext>(op
+    => op.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
 
 var app = builder.Build();
 
