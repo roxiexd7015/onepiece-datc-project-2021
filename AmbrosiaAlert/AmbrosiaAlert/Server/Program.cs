@@ -1,4 +1,5 @@
 using AmbrosiaAlert.Shared.Models;
+using AmbrosiaAlert.Shared.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+var passSettings = new PassSettings();
+builder.Configuration.Bind(nameof(PassSettings), passSettings);
+builder.Services.AddSingleton<PassSettings>(passSettings);
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ambrosia Alert", Version = "v1" });

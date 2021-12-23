@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{BCF155AF-2921-45DC-BB95-D33F873300FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Server", "AmbrosiaAlert\Server\AmbrosiaAlert.Server.csproj", "{F1E3284D-B742-43B1-963F-617CE5CCA415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Server", "AmbrosiaAlert\Server\AmbrosiaAlert.Server.csproj", "{F1E3284D-B742-43B1-963F-617CE5CCA415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Client", "AmbrosiaAlert\Client\AmbrosiaAlert.Client.csproj", "{459A12BC-D3C5-46BD-9CD2-B6EFBFD8870A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Client", "AmbrosiaAlert\Client\AmbrosiaAlert.Client.csproj", "{459A12BC-D3C5-46BD-9CD2-B6EFBFD8870A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Shared", "AmbrosiaAlert\Shared\AmbrosiaAlert.Shared.csproj", "{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Shared", "AmbrosiaAlert\Shared\AmbrosiaAlert.Shared.csproj", "{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Domain", "AmbrosiaAlert.Domain\AmbrosiaAlert.Domain.csproj", "{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
