@@ -1,7 +1,10 @@
 using AmbrosiaAlert.Shared.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +15,49 @@ builder.Services.AddRazorPages();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ambrosia Alert", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Trust us so we shall not trust anymore",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        //Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = JwtBearerDefaults.AuthenticationScheme
+                },
+                In = ParameterLocation.Header
+            },
+            new string[] { }
+        }
+    });
 });
 builder.Services.AddDbContext<AmbrosiaAlertContext>(op
     => op.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+
+var secret = Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("JwtSecret"));
+builder.Services.AddAuthentication(a =>
+{
+    a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(a =>
+{
+    a.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(secret),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
 
 var app = builder.Build();
 
@@ -39,6 +82,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();

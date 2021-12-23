@@ -1,4 +1,5 @@
 using AmbrosiaAlert.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AmbrosiaAlert.Server.Controllers
