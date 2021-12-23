@@ -4,4 +4,5 @@
 	[Latitude] DECIMAL NOT NULL,
 	[Longitude] DECIMAL NOT NULL,
 	[AddedAt] DATETIME NOT NULL,
+	[AddedBy] INT FOREIGN KEY REFERENCES [User](Id) NOT NULL,
 )

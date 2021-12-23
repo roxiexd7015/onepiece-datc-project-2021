@@ -7,6 +7,7 @@ namespace AmbrosiaAlert.Shared.Models
     {
         public User()
         {
+            Locations = new HashSet<Location>();
             Votes = new HashSet<Vote>();
         }
 
@@ -17,6 +18,7 @@ namespace AmbrosiaAlert.Shared.Models
         public bool IsAdmin { get; set; }
         public DateTime RegisteredAt { get; set; }
 
+        public virtual ICollection<Location> Locations { get; set; }
         public virtual ICollection<Vote> Votes { get; set; }
     }
 }

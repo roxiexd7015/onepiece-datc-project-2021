@@ -43,6 +43,12 @@ namespace AmbrosiaAlert.Shared.Models
                 entity.Property(e => e.Latitude).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Longitude).HasColumnType("decimal(18, 0)");
+
+                entity.HasOne(d => d.AddedByNavigation)
+                    .WithMany(p => p.Locations)
+                    .HasForeignKey(d => d.AddedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Location__AddedB__35BCFE0A");
             });
 
             modelBuilder.Entity<User>(entity =>
