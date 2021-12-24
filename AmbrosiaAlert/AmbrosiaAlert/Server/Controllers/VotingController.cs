@@ -2,6 +2,7 @@
 using AmbrosiaAlert.Shared.Models;
 using AmbrosiaAlert.Shared.Requests;
 using AmbrosiaAlert.Shared.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -27,6 +28,7 @@ namespace AmbrosiaAlert.Server.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Vote([FromBody] VoteRequest request)
         {            
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
