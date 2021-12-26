@@ -1,0 +1,28 @@
+﻿:root {
+    --nav-background: rgba(255, 255, 255, 0.9);
+}
+
+.mobile-nav {
+    background: var(--nav-background);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+    .mobile-nav .nav-link {
+        border-radius: 100%;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        padding: 0;
+    }
+
+        .mobile-nav .nav-link img {
+            margin-top: 13px;
+            height: 44px;
+            width: auto;
+        }
+
+.mobile-nav-buffer {
+    width: 100%;
+    height: 86px;
+}

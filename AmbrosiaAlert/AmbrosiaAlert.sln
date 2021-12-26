@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Client", "Amb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Shared", "AmbrosiaAlert\Shared\AmbrosiaAlert.Shared.csproj", "{E4D9B01C-F67C-4201-AC7B-4BAAC0F020BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Domain", "AmbrosiaAlert.Domain\AmbrosiaAlert.Domain.csproj", "{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Domain", "AmbrosiaAlert.Domain\AmbrosiaAlert.Domain.csproj", "{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
