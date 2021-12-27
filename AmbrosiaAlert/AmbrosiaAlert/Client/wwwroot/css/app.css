@@ -64,18 +64,16 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-.border-box {
-    box-sizing: border-box;
+#home {
     margin-bottom: 68px;
     background: #fcf3ec;
-    padding: 40px;
-    text-align: justify;
+    padding: 1rem;
 }
 
 .border-box-settings {
     box-sizing: border-box;
     background: #eeeff2;
-    padding: 40px;
+    padding: 1rem;
 }
 
 .title-wrap{
