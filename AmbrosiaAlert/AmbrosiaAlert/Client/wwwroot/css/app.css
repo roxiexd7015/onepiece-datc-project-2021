@@ -72,3 +72,14 @@ a, .btn-link {
     text-align: justify;
 }
 
+.border-box-settings {
+    box-sizing: border-box;
+    background: #eeeff2;
+    padding: 40px;
+}
+
+.title-wrap{
+    margin-top:68px;
+    text-align: center;
+}
+
