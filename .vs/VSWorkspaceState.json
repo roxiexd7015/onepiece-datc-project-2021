@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AmbrosiaAlert",
+    "\\AmbrosiaAlert\\AmbrosiaAlert",
+    "\\AmbrosiaAlert\\AmbrosiaAlert\\Client",
+    "\\AmbrosiaAlert\\AmbrosiaAlert\\Client\\Components",
+    "\\AmbrosiaAlert\\AmbrosiaAlert\\Client\\Pages",
+    "\\AmbrosiaAlert\\AmbrosiaAlert\\Client\\wwwroot",
+    "\\AmbrosiaAlert\\AmbrosiaAlert\\Client\\wwwroot\\images"
+  ],
+  "SelectedNode": "\\AmbrosiaAlert\\AmbrosiaAlert\\Client\\Pages",
+  "PreviewInSolutionExplorer": false
+}
