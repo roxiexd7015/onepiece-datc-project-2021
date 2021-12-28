@@ -37,5 +37,39 @@ window.createMap = async (id /*string*/) => {
         center: position.position,
         zoom: 13
     });
-}
 
+    map.once("load", () => {
+        // This code runs once the base style has finished loading.
+
+        map.addSource("ambrosia", {
+            type: "geojson",
+            data: "https://localhost:7034/api/Location/GeoJson",
+
+        });
+
+        map.addLayer({
+            id: "ambrosia-circle",
+            type: "circle",
+            source: "ambrosia",
+            paint: {
+                "circle-color": "#FF3131",
+                "circle-opacity": .7,
+                "circle-radius": 18
+            }
+        });
+
+        map.on('click', 'ambrosia-circle', (e) => {
+            const locationId = e.features[0].properties.locationId;
+            window.location.href = "https://localhost:7034/location/" + locationId;
+        });
+
+        map.on('mouseenter', 'ambrosia-circle', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'ambrosia-circle', () => {
+            map.getCanvas().style.cursor = '';
+        });
+
+    });
+}

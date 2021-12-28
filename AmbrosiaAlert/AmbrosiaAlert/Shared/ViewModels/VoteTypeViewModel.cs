@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AmbrosiaAlert.Shared.ViewModels
@@ -14,6 +15,14 @@ namespace AmbrosiaAlert.Shared.ViewModels
             Id = model.Id;
             Name = model.Name;
             Value = model.Value;
+        }
+
+        [JsonConstructor]
+        public VoteTypeViewModel(int id, string name, int value)
+        {
+            Id = id;
+            Name = name;
+            Value = value;
         }
 
         public int Id { get; set; }

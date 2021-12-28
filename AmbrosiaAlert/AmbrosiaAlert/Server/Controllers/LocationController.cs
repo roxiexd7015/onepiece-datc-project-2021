@@ -49,6 +49,14 @@ namespace AmbrosiaAlert.Server.Controllers
             return Ok(locations);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GeoJson()
+        {
+            var locations = _context.Locations;
+            var geoJson = new GeoJsonLocations(locations);
+            return Ok(geoJson);
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Add(AddLocationRequest request) //TODO: check proximity
