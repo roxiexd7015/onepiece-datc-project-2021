@@ -1,0 +1,24 @@
+﻿<label class="switch" @onclick="() => OnClick?.Invoke(this, new EventArgs())">
+    <input type="checkbox" @onchange="async (e) => await ValueChanged.InvokeAsync((bool)e.Value)">
+    <span class="slider @(Rounded?"round":string.Empty)"></span>
+</label>
+
+@code {
+    [Parameter]
+    public bool Rounded { get; set; }
+
+    [Parameter]
+    public bool Value { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> ValueChanged { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Rounded = true;
+        Value = false;
+    }
+
+    public event EventHandler<EventArgs>? OnClick;
+}
