@@ -1,0 +1,22 @@
+﻿@page "/location/{id}"
+@inject HttpClient http
+
+@if (Location is not null)
+{
+    <h2> @Location.AddedBy.Username </h2>
+}
+
+@code {
+    [Parameter]
+    public string Id{ get; set; }
+    public LocationViewModel? Location { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var http = new HttpClient();
+
+        await base.OnInitializedAsync();
+        var result = await http.GetAsync($"/api/Location/Get/{Id}");
+        Location = await result.Content.ReadFromJsonAsync<LocationViewModel>();
+    }
+}

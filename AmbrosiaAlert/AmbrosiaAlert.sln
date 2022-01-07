@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Shared", "Amb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbrosiaAlert.Domain", "AmbrosiaAlert.Domain\AmbrosiaAlert.Domain.csproj", "{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbrosiaAlert.Dashboard", "AmbrosiaAlert.Dashboard\AmbrosiaAlert.Dashboard.csproj", "{EF116755-AFD4-4079-A6D9-F044925D073F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E13ADCC-12C1-4149-84E2-D61B4E4CAD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF116755-AFD4-4079-A6D9-F044925D073F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF116755-AFD4-4079-A6D9-F044925D073F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF116755-AFD4-4079-A6D9-F044925D073F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF116755-AFD4-4079-A6D9-F044925D073F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

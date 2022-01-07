@@ -48,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 builder.Services.AddDbContext<AmbrosiaAlertContext>(op
-    => op.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+    => op.UseSqlServer(builder.Configuration.GetConnectionString("Azure")));
 
 var secret = Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("JwtSecret"));
 builder.Services.AddAuthentication(a =>

@@ -43,7 +43,7 @@ window.createMap = async (id /*string*/) => {
 
         map.addSource("ambrosia", {
             type: "geojson",
-            data: "https://localhost:7034/api/Location/GeoJson",
+            data: window.location.origin + "/api/Location/GeoJson",
 
         });
 

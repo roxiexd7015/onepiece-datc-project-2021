@@ -1,10 +1,10 @@
 {
-  "name": "AmbrosiaAlert",
-  "short_name": "AmbrosiaAlert",
+  "name": "Ambrosia Alert",
+  "short_name": "Ambrosia Alert",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#03173d",
+  "theme_color": "#72A748",
   "prefer_related_applications": false,
   "icons": [
     {

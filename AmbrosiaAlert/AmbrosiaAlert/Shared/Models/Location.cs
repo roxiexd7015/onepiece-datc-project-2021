@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AmbrosiaAlert.Shared.Models
 {
@@ -11,7 +12,9 @@ namespace AmbrosiaAlert.Shared.Models
         }
 
         public Guid? Id { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:N6}")]
         public decimal Latitude { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:N6}")]
         public decimal Longitude { get; set; }
         public DateTime AddedAt { get; set; }
         public int AddedBy { get; set; }

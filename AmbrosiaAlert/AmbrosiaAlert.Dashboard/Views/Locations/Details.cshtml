@@ -1,0 +1,92 @@
+﻿@model AmbrosiaAlert.Shared.Models.Location
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Location</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddedByNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddedByNavigation.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            Votes
+        </dt>
+        <dd class = "col-sm-10">
+            @Model?.Votes.Sum(a => a.TypeNavigation.Value)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<h4 class="pt-3">Votes</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                User Email
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Value
+            </th>
+            <th>
+                AddedAt
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Votes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Model.AddedByNavigation.Email
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeNavigation.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedAt)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
