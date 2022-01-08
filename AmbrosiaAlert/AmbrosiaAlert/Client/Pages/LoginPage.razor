@@ -1,29 +1,26 @@
 ﻿@page "/login"
 @inject HttpClient http
 @inject NavigationManager NavManager
+@inject ILocalStorageService localStorage
 
 <div id="login">
     <h1 class="pt-5 pb-4 text-center">Login</h1>
-    <EditForm Model="@Request" class="card card-body bg-white mt-5">
+    <EditForm Model="@Request" class="card card-body bg-white mt-5" OnValidSubmit="Authenticate">
         <DataAnnotationsValidator />
 
-        <div class="form-group row mb-2">
-            <label for="username" class="col-md-2 col-form-label">Username</label>
-            <div class="col-md-10">
-                <InputText id="username" class="form-control" placeholder="Username" @bind-Value="Request.Username" />
-                <ValidationMessage For="@(() => Request.Username)" />
-            </div>
+        <div class="form-group mb-2">
+            <label for="username">Username</label>
+            <InputText id="username" class="form-control" placeholder="Username" @bind-Value="Request.Username" />
+            <ValidationMessage For="@(() => Request.Username)" />
         </div>
-        <div class="form-group row">
-            <label for="password" class="col-md-2 col-form-label">Password</label>
-            <div class="col-md-10">
-                <InputText type="password" id="password" class="form-control" placeholder="Password" @bind-Value="Request.Password" />
-                <ValidationMessage For="@(() => Request.Password)" />
-            </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <InputText type="password" id="password" class="form-control" placeholder="Password" @bind-Value="Request.Password" />
+            <ValidationMessage For="@(() => Request.Password)" />
         </div>
         <div class="d-flex justify-content-between mt-3">
             <button type="button" class="btn btn-outline-secondary" @onclick="NavigateToRegister">Register</button>
-            <button type="submit" class="btn btn-success" @onclick="NavigateToMap">Login</button>
+            <button type="submit" class="btn btn-success">Login</button>
         </div>
     </EditForm>
 </div>
@@ -38,9 +35,17 @@
         Request = new AuthenticateRequest();
     }
 
-    private void NavigateToMap()
+    private async Task Authenticate()
     {
-        NavManager.NavigateTo("map");
+        var content = JsonContent.Create<AuthenticateRequest>(Request);
+        var result = await http.PostAsync("/api/User/Authenticate", content);
+        if(result.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            var raw = await result.Content.ReadAsStringAsync();
+            await localStorage.SetItem("authtoken", raw);
+            NavManager.NavigateTo("/", true);
+        }
+        
     }
 
     private void NavigateToRegister()

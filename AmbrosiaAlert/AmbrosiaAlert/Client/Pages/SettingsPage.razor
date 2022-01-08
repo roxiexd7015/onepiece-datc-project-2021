@@ -1,5 +1,6 @@
 ﻿@page "/settings"
 @inject NavigationManager NavManager
+@inject ILocalStorageService localStorage
 
 <div id="settings">
     <h1 class="pt-5 pb-4 text-center">Settings</h1>
@@ -10,8 +11,18 @@
         <img class="item item-display" src="images/sun.svg" />
         <p class="m-0 w-100">Display</p>
         <Slider @bind-Value="DarkTheme" />
-        <img class="item item-logout" src="images/box-line.svg" @onclick="NavigateToLogin" />
-        <p class="m-0 w-100" @onclick="NavigateToLogin">Logout</p>
+        <AuthorizeView>
+            <Authorized>
+                <img class="item item-logout" src="images/box-line.svg" @onclick="LogOut" />
+                <p class="m-0 w-100" @onclick="LogOut">Logout</p>
+            </Authorized>
+            <NotAuthorized>
+                <img class="item item-logout" src="images/box-line.svg" @onclick="LogIn" />
+                <p class="m-0 w-100" @onclick="LogIn">Login</p>
+                <span class="w-100 h-100" @onclick="LogIn"></span>
+            </NotAuthorized>
+        </AuthorizeView>
+        
     </div>
 </div>
 
@@ -19,8 +30,14 @@
     private bool ShowNotifications { get; set; }
     private bool DarkTheme { get; set; }
 
-    private void NavigateToLogin()
+    private async Task LogOut()
     {
-        NavManager.NavigateTo("login");
+        await localStorage.RemoveItem("authtoken");
+        NavManager.NavigateTo(NavManager.Uri, true);
+    }
+
+    private async Task LogIn()
+    {
+        NavManager.NavigateTo("/login");
     }
 }

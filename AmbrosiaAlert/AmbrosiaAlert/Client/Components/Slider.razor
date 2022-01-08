@@ -1,4 +1,4 @@
-﻿<label class="switch" @onclick="() => OnClick?.Invoke(this, new EventArgs())">
+﻿<label class="switch">
     <input type="checkbox" @onchange="async (e) => await ValueChanged.InvokeAsync((bool)e.Value)">
     <span class="slider @(Rounded?"round":string.Empty)"></span>
 </label>
@@ -19,6 +19,4 @@
         Rounded = true;
         Value = false;
     }
-
-    public event EventHandler<EventArgs>? OnClick;
 }
