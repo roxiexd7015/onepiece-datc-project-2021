@@ -99,3 +99,18 @@ a, .btn-link {
     .grid-container-settings .item-notifications { background-color: #6EB6F8; }
     .grid-container-settings .item-display { background-color: #7AE769; }
     .grid-container-settings .item-logout { background-color: #F25E67; }
+
+#login {
+    background: #fff9f9;
+    padding: 1rem;
+    width: 100%;
+    min-height: calc(100vh - 68px);
+}
+
+#register {
+    background: #fff9f9;
+    padding: 1rem;
+    width: 100%;
+    min-height: calc(100vh - 68px);
+}
+
