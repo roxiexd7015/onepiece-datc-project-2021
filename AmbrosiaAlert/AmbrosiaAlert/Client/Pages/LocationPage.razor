@@ -3,7 +3,7 @@
 
 @if (Location is not null)
 {
-    <h2> @Location.AddedBy.Username </h2>
+    <h2>Added By: @Location.AddedBy.Username </h2>
 }
 
 @code {
@@ -13,8 +13,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var http = new HttpClient();
-
         await base.OnInitializedAsync();
         var result = await http.GetAsync($"/api/Location/Get/{Id}");
         Location = await result.Content.ReadFromJsonAsync<LocationViewModel>();

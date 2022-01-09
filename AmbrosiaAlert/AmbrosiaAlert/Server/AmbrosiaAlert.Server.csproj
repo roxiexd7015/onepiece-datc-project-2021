@@ -7,6 +7,9 @@
     <UserSecretsId>ca7debe3-a0fa-4ae0-8a99-4297a0960b76</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+
+	  <ServiceWorkerCacheVersion>1.1.2</ServiceWorkerCacheVersion>
+	  <ServiceWorkerForce>true</ServiceWorkerForce>
   </PropertyGroup>
 
   <ItemGroup>

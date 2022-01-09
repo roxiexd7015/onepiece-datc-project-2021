@@ -60,7 +60,7 @@ window.createMap = async (id /*string*/) => {
 
         map.on('click', 'ambrosia-circle', (e) => {
             const locationId = e.features[0].properties.locationId;
-            window.location.href = "https://localhost:7034/location/" + locationId;
+            window.location.href = window.location.origin + "/location/" + locationId;
         });
 
         map.on('mouseenter', 'ambrosia-circle', () => {
